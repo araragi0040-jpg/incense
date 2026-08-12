@@ -72,7 +72,13 @@ function loadState() {
 }
 
 function saveState() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  // ChatGPTのプレビューや file:// など、localStorage が使えない環境でも
+  // 画面操作が止まらないように保存失敗を握りつぶします。
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch (_) {
+    // このセッション中は state（メモリ）上でそのまま動作します。
+  }
 }
 
 function yen(v) {
@@ -119,7 +125,6 @@ function computeRecommendation() {
   focusScore += (100 - state.stock.chan) / 50;
 
   state.recommendation = relaxScore >= focusScore ? 'kun' : 'chan';
-  state.selectedProduct = state.recommendation;
 
   if (state.recommendation === 'kun') {
     state.qty.kun = Math.max(2, state.qty.kun);
