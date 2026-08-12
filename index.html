@@ -3,50 +3,43 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#f7f3ea" />
-  <title>香り日和｜お香 × コンディション記録 Mock v001</title>
+  <meta name="theme-color" content="#f6f2ea" />
+  <title>香り日和｜お香 × コンディション記録 Mock v002</title>
   <link rel="stylesheet" href="./app.css" />
 </head>
 <body>
-  <div class="app-shell">
+  <div class="device-shell">
     <header class="topbar">
-      <div class="brand-block">
-        <div class="brand-mark" aria-hidden="true">〰</div>
+      <div class="brand">
+        <div class="smoke-mark">〰</div>
         <div>
           <div class="brand-title">香り日和</div>
           <div class="brand-sub">お香 × コンディション記録</div>
         </div>
       </div>
-      <button class="icon-btn" id="resetDemoBtn" aria-label="デモデータを初期化" title="デモデータを初期化">↻</button>
+      <button class="icon-btn" id="resetBtn" aria-label="初期化" title="デモデータを初期化">↺</button>
     </header>
 
-    <main id="appMain" class="main-content" aria-live="polite"></main>
+    <main id="app"></main>
 
-    <nav class="bottom-nav" aria-label="メインナビゲーション">
-      <button class="nav-item active" data-view="home">
-        <span class="nav-icon">⌂</span><span>ホーム</span>
-      </button>
-      <button class="nav-item" data-view="checkin">
-        <span class="nav-icon">✎</span><span>記録</span>
-      </button>
-      <button class="nav-item" data-view="report">
-        <span class="nav-icon">▥</span><span>レポート</span>
-      </button>
-      <button class="nav-item" data-view="purchase">
-        <span class="nav-icon">♧</span><span>購入</span>
-      </button>
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-view="home"><span class="nav-ico">⌂</span><span>ホーム</span></button>
+      <button class="nav-item" data-view="checkin"><span class="nav-ico">✎</span><span>記録</span></button>
+      <button class="nav-item" data-view="report"><span class="nav-ico">▥</span><span>レポート</span></button>
+      <button class="nav-item" data-view="purchase"><span class="nav-ico">👜</span><span>購入</span></button>
     </nav>
   </div>
 
-  <div class="toast" id="toast" role="status"></div>
+  <div class="toast" id="toast"></div>
+
   <div class="modal-backdrop hidden" id="modalBackdrop">
-    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div class="modal-handle"></div>
-      <h2 id="modalTitle">購入内容を確認</h2>
+    <section class="modal">
+      <div class="modal-grip"></div>
+      <h2>購入内容の確認</h2>
       <div id="modalBody"></div>
       <div class="modal-actions">
-        <button class="btn secondary" id="modalCancelBtn">戻る</button>
-        <button class="btn primary" id="modalConfirmBtn">購入ページへ進む</button>
+        <button class="btn btn-soft" id="closeModalBtn">戻る</button>
+        <button class="btn btn-primary" id="confirmPurchaseBtn">購入ページへ進む</button>
       </div>
     </section>
   </div>
