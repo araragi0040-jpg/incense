@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="theme-color" content="#f6f2ea" />
-  <title>香り日和｜お香 × コンディション記録 Mock v002 修正版2</title>
+  <title>香り日和｜お香 × コンディション記録 Mock v003</title>
   <style>
 :root {
   --bg: #f6f2ea;
@@ -515,6 +515,140 @@ button:focus-visible {
   .summary-box .value { font-size: 26px; }
 }
 
+
+
+/* v003: 初回診断 */
+.onboarding-wrap {
+  min-height: calc(100dvh - 112px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4px 0 18px;
+}
+.onboarding-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 24px 20px;
+  background: linear-gradient(155deg, rgba(255,253,249,.98), rgba(235,232,218,.96));
+}
+.onboarding-hero::before {
+  content: "〰";
+  position: absolute;
+  right: 18px;
+  top: 12px;
+  transform: rotate(90deg);
+  font-size: 72px;
+  color: rgba(173,138,88,.12);
+}
+.onboarding-hero h1 {
+  margin: 8px 0 10px;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 31px;
+  line-height: 1.42;
+}
+.onboarding-hero p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+.diag-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: var(--green-pale);
+  color: var(--green-deep);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .06em;
+}
+.diag-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 18px;
+}
+.diag-point {
+  padding: 12px 8px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.68);
+  text-align: center;
+}
+.diag-point b { display: block; font-size: 18px; margin-bottom: 5px; }
+.diag-point span { color: var(--muted); font-size: 10px; line-height: 1.45; }
+.diag-progress-wrap { margin: 2px 0 16px; }
+.diag-progress-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.diag-progress-head b { font-size: 12px; color: var(--green-deep); }
+.diag-progress-head span { font-size: 11px; color: var(--muted); }
+.diag-progress { height: 7px; border-radius: 999px; background: #e7e1d7; overflow: hidden; }
+.diag-progress i { display: block; height: 100%; border-radius: inherit; background: var(--green); transition: width .2s ease; }
+.diag-card { padding: 20px 16px; }
+.diag-qno { color: var(--green); font-size: 11px; font-weight: 800; letter-spacing: .12em; }
+.diag-question { margin: 7px 0 4px; font-size: 20px; line-height: 1.55; }
+.diag-help { margin: 0 0 16px; color: var(--muted); font-size: 12px; line-height: 1.65; }
+.diag-options { display: grid; gap: 9px; }
+.diag-option {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: white;
+  color: var(--ink);
+  border-radius: 17px;
+  padding: 14px 14px;
+  display: grid;
+  grid-template-columns: 40px 1fr 24px;
+  gap: 11px;
+  align-items: center;
+  text-align: left;
+}
+.diag-option .ico {
+  width: 40px; height: 40px; border-radius: 13px;
+  display: grid; place-items: center;
+  background: var(--paper-2);
+  font-size: 20px;
+}
+.diag-option strong { display: block; font-size: 14px; }
+.diag-option small { display: block; color: var(--muted); margin-top: 3px; font-size: 11px; line-height: 1.45; }
+.diag-option .radio {
+  width: 21px; height: 21px; border-radius: 50%; border: 2px solid #d5ccbc; position: relative;
+}
+.diag-option.active { border-color: var(--green); background: #fbfcf8; box-shadow: 0 0 0 2px rgba(110,126,87,.08); }
+.diag-option.active .radio::after { content: ""; position: absolute; inset: 4px; border-radius: 50%; background: var(--green-deep); }
+.diag-nav { display: flex; gap: 10px; margin-top: 16px; }
+.diag-nav .btn { flex: 1; }
+.diag-result {
+  text-align: center;
+  padding: 22px 18px;
+  background: linear-gradient(155deg, #f9fbf6, #eee9de);
+}
+.diag-result-icon {
+  width: 88px; height: 88px; margin: 0 auto 14px;
+  border-radius: 28px;
+  display: grid; place-items: center;
+  font-size: 40px;
+  background: white;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.diag-result .type { color: var(--green-deep); font-size: 12px; font-weight: 800; letter-spacing: .08em; }
+.diag-result h2 { margin: 8px 0 8px; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: 26px; }
+.diag-result p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.diag-result-products { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 16px; text-align: left; }
+.diag-mini-product { border: 1px solid var(--line); background: rgba(255,255,255,.76); border-radius: 16px; padding: 12px; }
+.diag-mini-product b { display: block; font-size: 14px; }
+.diag-mini-product span { color: var(--muted); font-size: 11px; }
+.diag-summary-card { margin-top: 12px; padding: 13px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.72); text-align: left; }
+.diag-summary-card b { display: block; font-size: 13px; margin-bottom: 5px; }
+.diag-summary-card p { margin: 0; }
+.diagnosis-home-card { background: linear-gradient(145deg, #f8faf5, #eee9df); }
+.diagnosis-home-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.diagnosis-home-row .copy b { display: block; font-size: 15px; }
+.diagnosis-home-row .copy span { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; line-height: 1.5; }
+.onboarding-hidden { display: none !important; }
+.device-shell.onboarding-mode { padding-bottom: 18px; }
+
 </style>
 </head>
 <body>
@@ -583,7 +717,66 @@ const PRODUCTS = [
 const DAILY_QUESTION = '今日は、どんな時間をいちばん過ごしたいですか？';
 const DAILY_CHOICES = ['ゆっくり休みたい', '頭を切り替えたい', '集中したい', '気分を整えたい'];
 
-const STORAGE_KEY = 'incense-mock-v002';
+
+const DIAG_QUESTIONS = [
+  {
+    key: 'purpose',
+    question: '香りを使いたいのは、どんなときですか？',
+    help: 'いちばん近いものを1つ選んでください。',
+    options: [
+      { value: 'rest', icon: '🌙', label: 'ゆっくり休みたい', sub: '夜やひと息つく時間に', kun: 2, chan: 0 },
+      { value: 'focus', icon: '✦', label: '集中したい', sub: '仕事・勉強・作業の前に', kun: 0, chan: 2 },
+      { value: 'switch', icon: '↻', label: '気持ちを切り替えたい', sub: 'オン・オフの境目をつくりたい', kun: 1, chan: 1 },
+      { value: 'sleep', icon: '☾', label: '眠る前に整えたい', sub: '1日の終わりを穏やかに', kun: 2, chan: 0 }
+    ]
+  },
+  {
+    key: 'recent',
+    question: '最近の自分に近いのは？',
+    help: '体調の診断ではなく、今の感覚を選ぶための質問です。',
+    options: [
+      { value: 'tired', icon: '🍃', label: '少し疲れを感じる', sub: 'まずは力を抜きたい', kun: 2, chan: 0 },
+      { value: 'busy', icon: '☁', label: '頭の中が忙しい', sub: '考えごとを落ち着けたい', kun: 2, chan: 0 },
+      { value: 'focus', icon: '◎', label: '集中のきっかけがほしい', sub: '始めるスイッチがほしい', kun: 0, chan: 2 },
+      { value: 'balance', icon: '○', label: '気分を整えたい', sub: '大きな不調はないが整えたい', kun: 1, chan: 1 }
+    ]
+  },
+  {
+    key: 'scent',
+    question: '惹かれる香りの印象は？',
+    help: '香りに詳しくなくても、直感で大丈夫です。',
+    options: [
+      { value: 'natural', icon: '🌿', label: 'やわらかく自然', sub: '包まれるような落ち着き', kun: 2, chan: 0 },
+      { value: 'clear', icon: '💧', label: 'すっきり澄んだ感じ', sub: '軽く、切り替わるような印象', kun: 0, chan: 2 },
+      { value: 'deep', icon: '🌲', label: '深みのある香り', sub: '静かな余韻を楽しみたい', kun: 2, chan: 0 },
+      { value: 'unknown', icon: '？', label: 'まだよく分からない', sub: '使いながら見つけたい', kun: 1, chan: 1 }
+    ]
+  },
+  {
+    key: 'time',
+    question: '使うことが多そうな時間帯は？',
+    help: 'おすすめの使い分けと購入数量の参考にします。',
+    options: [
+      { value: 'morning', icon: '☀', label: '朝', sub: '1日を始める前に', kun: 0, chan: 2 },
+      { value: 'day', icon: '◐', label: '日中', sub: '仕事や家事の合間に', kun: 0, chan: 1 },
+      { value: 'night', icon: '☾', label: '夜', sub: '帰宅後・眠る前に', kun: 2, chan: 0 },
+      { value: 'free', icon: '∞', label: '特に決めていない', sub: 'その日の気分で使いたい', kun: 1, chan: 1 }
+    ]
+  },
+  {
+    key: 'frequency',
+    question: 'お香はどのくらい使えそうですか？',
+    help: '初回のおすすめ数量を決める参考にします。',
+    options: [
+      { value: 'low', icon: '1', label: '週1回以下', sub: 'まずは気軽に試したい', qty: 1 },
+      { value: 'mid', icon: '2', label: '週2〜3回', sub: '無理なく習慣にしたい', qty: 2 },
+      { value: 'high', icon: '4', label: '週4〜5回', sub: '日常的に使いたい', qty: 3 },
+      { value: 'daily', icon: '7', label: 'ほぼ毎日', sub: '生活のリズムに取り入れたい', qty: 4 }
+    ]
+  }
+];
+
+const STORAGE_KEY = 'incense-mock-v003';
 const app = document.getElementById('app');
 const toast = document.getElementById('toast');
 const modalBackdrop = document.getElementById('modalBackdrop');
@@ -594,6 +787,11 @@ const resetBtn = document.getElementById('resetBtn');
 
 const defaultState = () => ({
   view: 'home',
+  onboardingCompleted: false,
+  diagnosisStep: -1,
+  diagnosisAnswers: {},
+  diagnosisResult: null,
+  afterDiagnosisActivity: false,
   dailyAnswer: '',
   checkin: { mood: 4, energy: 3, fatigue: 4, focus: 3 },
   selectedProduct: 'kun',
@@ -682,17 +880,28 @@ function computeRecommendation() {
   if (state.dailyAnswer === 'ゆっくり休みたい' || state.dailyAnswer === '気分を整えたい') relaxScore += 1.4;
   if (state.dailyAnswer === '集中したい' || state.dailyAnswer === '頭を切り替えたい') focusScore += 1.4;
 
+  // 初回診断結果を、その後のおすすめの「初期傾向」として少しだけ残す。
+  // 日々の記録が増えると、コンディション・使用履歴側の影響が大きくなる想定。
+  if (state.diagnosisResult) {
+    if (state.diagnosisResult.primary === 'kun') relaxScore += 1.6;
+    else focusScore += 1.6;
+  }
+
   relaxScore += (100 - state.stock.kun) / 50;
   focusScore += (100 - state.stock.chan) / 50;
 
   state.recommendation = relaxScore >= focusScore ? 'kun' : 'chan';
 
-  if (state.recommendation === 'kun') {
-    state.qty.kun = Math.max(2, state.qty.kun);
-    state.qty.chan = Math.max(1, state.qty.chan);
-  } else {
-    state.qty.chan = Math.max(2, state.qty.chan);
-    state.qty.kun = Math.max(1, state.qty.kun);
+  // 初回診断直後は診断で算出した購入数量をそのまま見せる。
+  // 初回診断後に実際の記録が入ったら、数量提案をブラッシュアップする。
+  if (!state.diagnosisResult || state.afterDiagnosisActivity) {
+    if (state.recommendation === 'kun') {
+      state.qty.kun = Math.max(2, state.qty.kun);
+      state.qty.chan = Math.max(1, state.qty.chan);
+    } else {
+      state.qty.chan = Math.max(2, state.qty.chan);
+      state.qty.kun = Math.max(1, state.qty.kun);
+    }
   }
 }
 
@@ -714,9 +923,179 @@ function recordToday() {
   });
   state.stock[p.id] = Math.max(0, state.stock[p.id] - 6);
   state.streak += 1;
+  state.afterDiagnosisActivity = true;
   saveState();
   showToast(`記録しました。今日のおすすめは「${p.name}」です`);
   setView('home');
+}
+
+
+function getDiagnosisResult() {
+  let kun = 0;
+  let chan = 0;
+  let frequencyQty = 2;
+
+  DIAG_QUESTIONS.forEach(q => {
+    const chosen = q.options.find(o => o.value === state.diagnosisAnswers[q.key]);
+    if (!chosen) return;
+    kun += chosen.kun || 0;
+    chan += chosen.chan || 0;
+    if (chosen.qty) frequencyQty = chosen.qty;
+  });
+
+  const primary = kun >= chan ? 'kun' : 'chan';
+  const secondary = primary === 'kun' ? 'chan' : 'kun';
+  const gap = Math.abs(kun - chan);
+  let typeTitle = primary === 'kun' ? 'ゆるめる香りタイプ' : '切り替える香りタイプ';
+  let description = primary === 'kun'
+    ? '今は、力を抜いて気持ちを整える時間と相性が良さそうです。まずは「お香くん」を中心に、日々の記録で実際の相性を確かめていきます。'
+    : '今は、気持ちや頭を切り替える時間と相性が良さそうです。まずは「お香ちゃん」を中心に、日々の記録で実際の相性を確かめていきます。';
+
+  if (gap <= 1) {
+    typeTitle = 'バランス香りタイプ';
+    description = '休息と切り替えの両方を使い分けるタイプです。2種類を少量ずつ試し、使用履歴から次回の組み合わせをブラッシュアップしていきます。';
+  }
+
+  let primaryQty = Math.max(1, Math.ceil(frequencyQty * .6));
+  let secondaryQty = Math.max(1, frequencyQty - primaryQty);
+  if (frequencyQty === 1) {
+    primaryQty = 1;
+    secondaryQty = 0;
+  }
+  if (gap <= 1 && frequencyQty >= 2) {
+    primaryQty = Math.ceil(frequencyQty / 2);
+    secondaryQty = Math.floor(frequencyQty / 2);
+  }
+
+  const qty = { kun: 0, chan: 0 };
+  qty[primary] = primaryQty;
+  qty[secondary] = secondaryQty;
+
+  return { primary, secondary, typeTitle, description, scores: { kun, chan }, qty };
+}
+
+function completeDiagnosis() {
+  const result = getDiagnosisResult();
+  state.diagnosisResult = result;
+  state.afterDiagnosisActivity = false;
+  state.recommendation = result.primary;
+  state.selectedProduct = result.primary;
+  state.qty = { ...result.qty };
+  state.diagnosisStep = DIAG_QUESTIONS.length;
+  saveState();
+  render();
+  try { window.scrollTo(0, 0); } catch (_) {}
+}
+
+function finishOnboarding() {
+  if (!state.diagnosisResult) state.diagnosisResult = getDiagnosisResult();
+  state.onboardingCompleted = true;
+  state.diagnosisStep = -1;
+  state.view = 'home';
+  saveState();
+  render();
+  try { window.scrollTo(0, 0); } catch (_) {}
+  showToast('初回診断を保存しました');
+}
+
+function skipOnboarding() {
+  state.diagnosisResult = null;
+  state.afterDiagnosisActivity = true;
+  state.onboardingCompleted = true;
+  state.diagnosisStep = -1;
+  state.view = 'home';
+  saveState();
+  render();
+  try { window.scrollTo(0, 0); } catch (_) {}
+}
+
+function restartDiagnosis() {
+  state.onboardingCompleted = false;
+  state.diagnosisStep = 0;
+  state.diagnosisAnswers = {};
+  state.diagnosisResult = null;
+  state.afterDiagnosisActivity = false;
+  saveState();
+  render();
+  try { window.scrollTo(0, 0); } catch (_) {}
+}
+
+function renderOnboarding() {
+  if (state.diagnosisStep === -1) {
+    return `
+      <section class="onboarding-wrap">
+        <div class="panel onboarding-hero">
+          <span class="diag-badge">初回のみ・約1分</span>
+          <h1>今のあなたに合う<br>香りの入口を見つける。</h1>
+          <p>5つの簡単な質問から、最初に試す「お香くん / お香ちゃん」と購入数量の目安を提案します。使い始めたあとは、日々の記録と使用履歴でおすすめを更新していきます。</p>
+          <div class="diag-points">
+            <div class="diag-point"><b>5</b><span>簡単な質問</span></div>
+            <div class="diag-point"><b>2</b><span>商品の相性提案</span></div>
+            <div class="diag-point"><b>∞</b><span>使用後に更新</span></div>
+          </div>
+          <div class="btn-row">
+            <button class="btn btn-primary" data-diag-action="start">診断をはじめる</button>
+            <button class="btn btn-soft" data-diag-action="skip">モックを先に見る</button>
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  if (state.diagnosisStep >= DIAG_QUESTIONS.length) {
+    const result = state.diagnosisResult || getDiagnosisResult();
+    const primary = productById(result.primary);
+    return `
+      <section class="onboarding-wrap">
+        <div class="card diag-result">
+          <div class="diag-result-icon">${result.primary === 'kun' ? '🌿' : '✦'}</div>
+          <div class="type">YOUR SCENT TYPE</div>
+          <h2>${result.typeTitle}</h2>
+          <p>${result.description}</p>
+          <div class="diag-result-products">
+            <div class="diag-mini-product"><b>お香くん × ${result.qty.kun}</b><span>リラックス・整える</span></div>
+            <div class="diag-mini-product"><b>お香ちゃん × ${result.qty.chan}</b><span>集中・切り替える</span></div>
+          </div>
+          <div class="diag-summary-card">
+            <b>最初のおすすめ：${primary.name}</b>
+            <p>これは初回の仮提案です。日々の気分・使用履歴・使用後の感覚を記録すると、次回購入の組み合わせと数量がブラッシュアップされます。</p>
+          </div>
+          <button class="btn btn-primary full" style="margin-top:16px" data-diag-action="finish">ホームへ進む</button>
+          <button class="text-btn" style="margin-top:14px" data-diag-action="restart">最初からやり直す</button>
+        </div>
+      </section>
+    `;
+  }
+
+  const q = DIAG_QUESTIONS[state.diagnosisStep];
+  const selected = state.diagnosisAnswers[q.key];
+  const progress = ((state.diagnosisStep + 1) / DIAG_QUESTIONS.length) * 100;
+  return `
+    <section class="onboarding-wrap">
+      <div class="diag-progress-wrap">
+        <div class="diag-progress-head"><b>香りタイプ診断</b><span>${state.diagnosisStep + 1} / ${DIAG_QUESTIONS.length}</span></div>
+        <div class="diag-progress"><i style="width:${progress}%"></i></div>
+      </div>
+      <div class="card diag-card">
+        <div class="diag-qno">QUESTION ${state.diagnosisStep + 1}</div>
+        <h2 class="diag-question">${q.question}</h2>
+        <p class="diag-help">${q.help}</p>
+        <div class="diag-options">
+          ${q.options.map(o => `
+            <button class="diag-option ${selected === o.value ? 'active' : ''}" data-diag-choice="${o.value}">
+              <span class="ico">${o.icon}</span>
+              <span><strong>${o.label}</strong><small>${o.sub}</small></span>
+              <span class="radio"></span>
+            </button>
+          `).join('')}
+        </div>
+        <div class="diag-nav">
+          <button class="btn btn-soft" data-diag-action="back" ${state.diagnosisStep === 0 ? 'disabled' : ''}>戻る</button>
+          <button class="btn btn-primary" data-diag-action="next" ${selected ? '' : 'disabled'}>${state.diagnosisStep === DIAG_QUESTIONS.length - 1 ? '結果を見る' : '次へ'}</button>
+        </div>
+      </div>
+    </section>
+  `;
 }
 
 function lineChartSVG(records) {
@@ -833,6 +1212,18 @@ function renderHome() {
           <div class="metric-label">次回のおすすめ</div>
           <div class="metric-value" style="font-size:20px">${rec.name}</div>
           <div class="metric-note">${rec.tag}寄り</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card diagnosis-home-card">
+        <div class="diagnosis-home-row">
+          <div class="copy">
+            <b>${state.diagnosisResult ? state.diagnosisResult.typeTitle : '初回診断'}</b>
+            <span>${state.diagnosisResult ? `初回のおすすめは「${productById(state.diagnosisResult.primary).name}」。日々の記録で更新していきます。` : '5つの質問から最初の香りを提案します。'}</span>
+          </div>
+          <button class="btn btn-outline small-btn" data-action="restart-diagnosis">診断し直す</button>
         </div>
       </div>
     </section>
@@ -1073,7 +1464,7 @@ function openPurchaseModal() {
     <div class="summary-box">
       <div>
         <div class="label">お支払い予定</div>
-        <div class="sub">v002では確認画面まで</div>
+        <div class="sub">v003では確認画面まで</div>
       </div>
       <div class="value">${yen(total)}</div>
     </div>
@@ -1083,6 +1474,42 @@ function openPurchaseModal() {
 }
 
 function bindEvents() {
+  document.querySelectorAll('[data-diag-action]').forEach(btn => {
+    btn.onclick = () => {
+      const action = btn.dataset.diagAction;
+      if (action === 'start') {
+        state.diagnosisStep = 0;
+        saveState();
+        render();
+        return;
+      }
+      if (action === 'skip') { skipOnboarding(); return; }
+      if (action === 'back') {
+        state.diagnosisStep = Math.max(0, state.diagnosisStep - 1);
+        saveState(); render(); return;
+      }
+      if (action === 'next') {
+        const q = DIAG_QUESTIONS[state.diagnosisStep];
+        if (!state.diagnosisAnswers[q.key]) return;
+        if (state.diagnosisStep >= DIAG_QUESTIONS.length - 1) completeDiagnosis();
+        else { state.diagnosisStep += 1; saveState(); render(); }
+        return;
+      }
+      if (action === 'finish') { finishOnboarding(); return; }
+      if (action === 'restart') { restartDiagnosis(); return; }
+    };
+  });
+  document.querySelectorAll('[data-diag-choice]').forEach(btn => {
+    btn.onclick = () => {
+      const q = DIAG_QUESTIONS[state.diagnosisStep];
+      state.diagnosisAnswers[q.key] = btn.dataset.diagChoice;
+      saveState();
+      render();
+    };
+  });
+  document.querySelectorAll('[data-action="restart-diagnosis"]').forEach(btn => {
+    btn.onclick = restartDiagnosis;
+  });
   document.querySelectorAll('[data-view]').forEach(btn => {
     btn.onclick = () => setView(btn.dataset.view);
   });
@@ -1130,6 +1557,18 @@ function bindEvents() {
 }
 
 function render() {
+  const nav = document.querySelector('.bottom-nav');
+  const shell = document.querySelector('.device-shell');
+  if (!state.onboardingCompleted) {
+    app.innerHTML = renderOnboarding();
+    if (nav) nav.classList.add('onboarding-hidden');
+    if (shell) shell.classList.add('onboarding-mode');
+    bindEvents();
+    return;
+  }
+
+  if (nav) nav.classList.remove('onboarding-hidden');
+  if (shell) shell.classList.remove('onboarding-mode');
   computeRecommendation();
   const views = {
     home: renderHome,
